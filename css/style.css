@@ -39,6 +39,9 @@ a{
   text-decoration: none;
   color: #222;
 }
+h2{
+  font-weight: normal;
+}
 ul li{
   list-style: none;
 }
@@ -53,6 +56,7 @@ ul li{
   margin-top: 95px;
   font-size: 48px;
   line-height: 1.333333;
+  font-weight: var(--weight-bold);
 }
 .sm-title{
   font-size: 24px;
@@ -60,13 +64,25 @@ ul li{
   letter-spacing: -0.015em;
   margin-top: 4px;
 }
+.md-title{
+  font-size: 36px;
+  line-height: 1.333333;
+  font-weight: var(--weight-medium);
+}
 .wrap{
   position: relative;
   display: block;
   width: 100%;
   height: 100%;
 }
-
+.span-line{
+  margin-top: 15px;
+  display: inline-block;
+  width: 100%;
+}
+.span-line hr{
+  border-color: #000;
+}
 /* header */
 header{
   position: fixed;
@@ -371,9 +387,20 @@ figure div video{
 .visual-mb{
   display: none;
 }
-@media screen and (max-width:1280px) {
+@media screen and (min-width:768px) and (max-width:1280px) {
   .visual-bottom p{
     font-size: 1.40625vw;
+  }
+  .visual-textbox{
+    width: 52%;
+  }
+}
+@media only screen and (max-width:767.7px){
+  .visual-bottom p{
+    font-size: 3.73333vw;
+  }
+  .visual-bottom span{
+    font-size: 3vw;
   }
   .visual-pc{
     display: none;
@@ -382,6 +409,50 @@ figure div video{
     display: block;
   }
   .visual-textbox{
-    width: 52%;
+    width: 100%;
   }
+}
+
+/* Latest */
+.Latest{
+  width: 100%;
+  display: block;
+  position: relative;
+}
+.sticky-wrapper{
+  display: flex;
+  align-items: flex-end;
+}
+.sticky-full{
+  position: sticky;
+  bottom: 20px;
+  margin-top: 50px;
+}
+.sticky-full figure a{
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+@keyframes imgBgMotion{
+  0%{top:150%; opacity: 0;}
+  100%{top: 50%; opacity: 1;}
+}
+@keyframes opacityMotion{
+  0%{opacity: 0;}
+  100%{opacity: 1;}
+}
+.sticky-full figure a img{
+  width: 100%;
+  height: 100%;
+  /* object-fit: cover;
+  position: absolute;
+  left: 50%;
+  top: 150%; */
+  /* transform: translate(-50%, -50%) scale(1); */
+  animation: imgBoxMotion 1s cubic-bezier(0, 0.55, 0.45, 1) forwards, opacityMotion 1s cubic-bezier(0, 0.55, 0.45, 1) forwards;
+}
+.st-article{
+  width: 49.9999998%;
+  display: inline-block;
+  padding: 0 1 219512195%;
 }
